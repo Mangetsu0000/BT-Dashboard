@@ -35,6 +35,7 @@ model Agency{
   ttIpAddress String
   orangeIpAddress String
 
+
   adminId Int
   admin   User @relation(fields: [adminId], references: [id])
   @@map("agencies")
