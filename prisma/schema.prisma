@@ -21,23 +21,24 @@ model User{
   firstName  String?
   lastName String?
 
-  agencies Agency[]
+  branches Branch[]
 
   @@map("users")
 }
 
-model Agency{
+model Branch{
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   name String
+  bc Int
   ttIpAddress String
   orangeIpAddress String
 
 
   adminId Int
   admin   User @relation(fields: [adminId], references: [id])
-  @@map("agencies")
+  @@map("branches")
 
 }
