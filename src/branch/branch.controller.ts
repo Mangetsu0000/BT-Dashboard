@@ -25,28 +25,27 @@ export class BranchController {
   }
 
   @UseGuards(JwtGuard)
-  @Post()
-  createBranch(
-    @GetUser('id', ParseIntPipe) userId: number,
-    @Body() dto: CreateBranchDto,
-  ) {
+  @Post('create')
+  createBranch(@GetUser('id') userId: number, @Body() dto: CreateBranchDto) {
     return this.branchService.createBranch(userId, dto);
   }
 
   @UseGuards(JwtGuard)
-  @Get(':id')
+  @Get('get/:id')
   getBranchById(@Param('id', ParseIntPipe) branchId: number) {
     return this.branchService.getBranchById(branchId);
   }
 
   @UseGuards(JwtGuard)
-  @Patch(':id')
+  @Patch('update/:id')
   updateBranchById(
     @Param('id', ParseIntPipe) branchId: number,
     @Body() dto: UpdateBranchDto,
-  ) {}
+  ) {
+    this.branchService.updateBranchById(branchId, dto);
+  }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   deleteBranchById(@Param('id', ParseIntPipe) branchId: number) {
     this.branchService.deleteBranchById(branchId);
   }

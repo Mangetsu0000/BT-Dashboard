@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateBranchDto {
@@ -7,13 +8,14 @@ export class CreateBranchDto {
 
   @IsNumber()
   @IsNotEmpty()
+  @Type(() => Number)
   bc: number;
 
   @IsString()
   @IsNotEmpty()
-  ttIpAddress: String;
+  ttIpAddress: string;
 
   @IsString()
   @IsNotEmpty()
-  orangeIpAddress: String;
+  orangeIpAddress: string;
 }
