@@ -12,20 +12,21 @@ CREATE TABLE "users" (
 );
 
 -- CreateTable
-CREATE TABLE "agencies" (
+CREATE TABLE "branches" (
     "id" SERIAL NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "name" TEXT NOT NULL,
+    "bc" INTEGER NOT NULL,
     "ttIpAddress" TEXT NOT NULL,
     "orangeIpAddress" TEXT NOT NULL,
-    "adminId" INTEGER NOT NULL,
+    "userId" INTEGER NOT NULL,
 
-    CONSTRAINT "agencies_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "branches_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- AddForeignKey
-ALTER TABLE "agencies" ADD CONSTRAINT "agencies_adminId_fkey" FOREIGN KEY ("adminId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "branches" ADD CONSTRAINT "branches_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

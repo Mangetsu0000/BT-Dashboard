@@ -37,8 +37,8 @@ model Branch{
   orangeIpAddress String
 
 
-  adminId Int
-  admin   User @relation(fields: [adminId], references: [id])
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
   @@map("branches")
 
 }
