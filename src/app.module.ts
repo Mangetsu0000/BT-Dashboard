@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { UserModule } from './user/user.module';
 import { BranchModule } from './branch/branch.module';
+import { PingModule } from './ping/ping.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { BranchModule } from './branch/branch.module';
     ConfigModule.forRoot({ isGlobal: true }),
     UserModule,
     BranchModule,
+    PingModule,
   ],
   controllers: [AppController],
   providers: [AppService],
