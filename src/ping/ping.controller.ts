@@ -6,6 +6,6 @@ export class PingController {
   constructor(private pingService: PingService) {}
   @Get()
   pinger() {
-    return this.pingService.ping('xxx.xxx.x.xx');
+    return this.pingService.ping('ipAddress');
   }
 }
